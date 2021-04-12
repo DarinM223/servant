@@ -389,7 +389,7 @@ eitherDecodeLenient input =
           <* (endOfInput <?> "trailing junk after valid JSON")
 
 -- | `eitherDecode`
-instance {-# OVERLAPPABLE #-} FromJSON a => MimeUnrender JSON a where
+instance {-# INCOHERENT #-} FromJSON a => MimeUnrender JSON a where
     mimeUnrender _ = eitherDecodeLenient
 
 -- | @urlDecodeAsForm@
